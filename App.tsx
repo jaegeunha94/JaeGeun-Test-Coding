@@ -1,11 +1,14 @@
 import * as React from 'react';
 import './style.css';
+import Home from './src/Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 export default function App() {
   return (
-    <div>
-      <h1>Hello StackBlitz!</h1>
-      <p>Start editing to see some magic happen :)</p>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </Router>
   );
 }
