@@ -2,7 +2,7 @@ import * as React from 'react';
 import './style.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './src/Home';
-import UseImperativeHandle from './src/Hook/UseImperativeHandle';
+import UseImperativeHandle from './src/Hook/UseImperativeHandle/UseImperativeHandle';
 
 export default function App() {
   return (

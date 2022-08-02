@@ -1,6 +1,6 @@
 //App.jsx
 import * as React from 'react';
-import InputFunctionalComponent from '../Hook/InputFunctionalComponent';
+import InputFunctionalComponent from '../../Hook/UseImperativeHandle/InputFunctionalComponent';
 
 export default function UseImperativeHandle() {
   const inputRef = React.useRef(null);
