@@ -1,3 +1,4 @@
+import axios from 'axios';
 import * as React from 'react';
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
@@ -7,7 +8,22 @@ import App from './App';
 
 const rootElement = document.getElementById('root');
 const root = createRoot(rootElement);
-const queryClient = new QueryClient();
+// Define a default query function that will receive the query key
+const defaultQueryFn = async ({ queryKey }) => {
+  const { data } = await axios.get(
+    `https://61b88c9d64e4a10017d19053.mockapi.io/user`
+  );
+  return data;
+};
+
+// provide the default query function to your app with defaultOptions
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      queryFn: defaultQueryFn,
+    },
+  },
+});
 
 root.render(
   <StrictMode>

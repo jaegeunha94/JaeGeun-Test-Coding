@@ -5,7 +5,7 @@ const Profile = ({ library, data }) => (
     <h1>Users from {library}</h1>
     {data.map((user) => (
       <p>
-        {user.level} developer <strong>{user.name}</strong>
+        이름: {user.name}  <strong>나이: {user.age}</strong>
       </p>
     ))}
   </div>
