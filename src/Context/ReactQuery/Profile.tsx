@@ -1,8 +1,9 @@
 import * as React from 'react';
 
-const Profile = ({ library, data, handleEditProfile }) => (
+const Profile = ({ library, data, handleEditProfile, handleSubmit }) => (
   <div>
     <button onClick={handleEditProfile} />
+    <button onClick={handleSubmit} />
     <h1>Users from {library}</h1>
     {data.map((user) => (
       <p>
