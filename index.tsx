@@ -16,16 +16,16 @@ const root = createRoot(rootElement);
 //   return data;
 // };
 
-// provide the default query function to your app with defaultOptions
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchInterval: 10000000,
-      queryFn: defaultQueryFn,
-    },
-  },
-});
-
+// // provide the default query function to your app with defaultOptions
+// const queryClient = new QueryClient({
+//   defaultOptions: {
+//     queries: {
+//       refetchInterval: 10000000,
+//       queryFn: defaultQueryFn,
+//     },
+//   },
+// });
+const queryClient = new QueryClient();
 root.render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
