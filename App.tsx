@@ -1,15 +1,13 @@
 import * as React from 'react';
 import './style.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './src/Home';
-import ErrorTest from './src/Error/ErrorTest';
+import ReactQueryProfile from './src/Context/ReactQuery/ReactQueryProfile';
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/error" element={<ErrorTest />} />
+        <Route path="/" element={<ReactQueryProfile />} />
       </Routes>
     </Router>
   );
