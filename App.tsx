@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ReactQueryProfile from './src/Context/ReactQuery/ReactQueryProfile';
 import Home from './src/Home';
 import ServeRouting from './src/ReactRouterDOM/ServeRouting/ServeRouting';
+import RouteHook from './src/ReactRouterDOM/RouteHook/RouteHook';
 
 export default function App() {
   return (
@@ -11,6 +12,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<ReactQueryProfile />} />
         <Route path="/home" element={<Home />} />
+        {/* // Route hook */}
+        <Route path="/hooks/:id" element={<RouteHook />} />
         {/* // 서브 라우팅 */}
         <Route path="/serve/*" element={<ServeRouting />} />
         {/* //중첩 라우팅
