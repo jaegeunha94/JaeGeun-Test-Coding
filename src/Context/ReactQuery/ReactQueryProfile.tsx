@@ -8,26 +8,25 @@ const ReactQueryProfile = () => {
     fetch('https://61b88c9d64e4a10017d19053.mockapi.io/user').then((res) =>
       res.json()
     );
-  const handleEditProfile = () => {
-    // unique key를 통해서 data가 invalid 상태임을 전달합니다.
-    // react query에서는 해당 데이터를 즉시 refetch 하게 됩니다.
-    // queryClient.invalidateQueries(['/posts']);
-    // 데이터 변경
-    // queryClient.setQueryData(['/posts'], [{ name: 'test', age: 29 }]);
-  };
+  const handleEditProfile = () => {};
 
   const testMutation = useMutation(fetcher, {
-    onMutate: (variable) => {
-      queryClient.invalidateQueries({
-        queryKey: ['/posts'],
-        refetchActive: false,
-      });
-    },
+    onMutate: (variable) => {},
     onError: (error, variable, context) => {
       // error
     },
     onSuccess: (data, variables, context) => {
-      console.log('success', data, variables, context);
+      // unique key를 통해서 data가 invalid 상태임을 전달합니다.
+      // react query에서는 해당 데이터를 즉시 refetch 하게 됩니다.
+      // queryClient.invalidateQueries(['/posts']);
+      queryClient.invalidateQueries({
+        queryKey: ['/posts'],
+        refetchActive: false,
+      });
+
+      // 데이터 변경
+      // queryClient.setQueryData(['/posts'], [{ name: 'test', age: 29 }]);
+      queryClient.setQueryData(['/posts'], [{ name: 'test', age: 29 }]);
     },
     onSettled: () => {
       console.log('end');
@@ -56,6 +55,8 @@ const ReactQueryProfile = () => {
 
     // 실패시 재호출 몇번 할지
     retry: 0,
+
+    suspense: true,
 
     // 성공시 호출
     onSuccess: (data) => {
