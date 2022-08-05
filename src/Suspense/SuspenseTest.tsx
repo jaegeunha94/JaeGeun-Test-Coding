@@ -1,17 +1,15 @@
 import * as React from 'react';
+import Posts from '../Suspense/Posts';
 
-export default function SuspenseTest() {
-  const [posts, setPosts] = React.useState([]);
+export default function SuspenseTest({ resource }) {
+  const user = resource.user.read();
 
-  React.useEffect(() => {
-    fetch(`https://61b88c9d64e4a10017d19053.mockapi.io/user`)
-      .then((response) => response.json())
-      .then((data) => {
-        setTimeout(() => {
-          setPosts(data);
-        }, 3000);
-      });
-  });
-
-  return <div>{posts}</div>;
+  return (
+    <div>
+      {user.name}({user.age})
+      <React.Suspense fallback={<p>글목록 로딩중...</p>}>
+        <Posts resource={resource} />
+      </React.Suspense>
+    </div>
+  );
 }
